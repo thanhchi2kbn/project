@@ -1,0 +1,139 @@
+$(document).ready(function(){
+    runnCarousel(".js-carousel");
+    AOS.init();
+    $('#menu-mobile').mmenu({
+        extensions: ["position-right", "position-front"]
+    });
+
+    $('.btn-filter').click(function () {
+        if($(this).hasClass('active')) {
+            $(this).removeClass('active')
+            $('.list-filter').removeClass('d-none')
+        } else {
+            $(this).addClass('active')
+            $('.list-filter').addClass('d-none')
+        }
+
+    })
+
+    var $carouselIcons = [
+        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+        '<i class="fa fa-angle-right" aria-hidden="true"></i>',
+    ];
+    
+    function runnCarousel(holder) {
+        var $carousel = $(holder);
+        if (!$().owlCarousel) {
+            console.log("carousel: owlCarousel plugin is missing.");
+            return true;
+        }
+        if ($carousel.length > 0) {
+            $carousel.each(function() {
+                var elem = $(this),
+                    carouselNav = elem.attr("data-arrows"),
+                    touchDrag = elem.attr("data-touch"),
+                    carouselDots = elem.attr("data-dots") || true,
+                    carouseldotsData = elem.attr("data-dotsData") || false,
+                    carouselAutoPlay = elem.attr("data-autoplay") || false,
+                    carouselAutoplayTimeout = elem.attr("data-autoplay-timeout") || 3000,
+                    carouselAutoWidth = elem.attr("data-auto-width") || false,
+                    resizeHeight = elem.attr("auto-height") || false,
+                    carouseAnimateIn = elem.attr("data-animate-in") || false,
+                    carouseAnimateOut = elem.attr("data-animate-out") || false,
+                    carouselLoop = elem.attr("data-loop") || false,
+                    carouselMargin = elem.attr("data-margin") || 0,
+                    carouselVideo = elem.attr("data-video") || false,
+                    carouselItems = elem.attr("data-items") || 4,
+                    carouselSlideBy = elem.attr("data-slideBy") || 1,
+                    centerMode = elem.attr('data-center') || false,
+                    carouselItemsLg = elem.attr("data-items-lg") || Number(carouselItems),
+                    carouselItemsMd =
+                    elem.attr("data-items-md") || Number(carouselItemsLg),
+                    carouselItemsSm =
+                    elem.attr("data-items-sm") || Number(carouselItemsMd),
+                    carouselItemsXs =
+                    elem.attr("data-items-xs") || Number(carouselItemsSm),
+                    carouselItemsXxs =
+                    elem.attr("data-items-xxs") || Number(carouselItemsXs);
+                if (carouselItemsMd >= 3) {
+                    var carouselItemsSm = elem.attr("data-items-sm") || Number(2);
+                }
+                if (carouselItemsSm >= 2) {
+                    var carouselItemsXs = elem.attr("data-items-xs") || Number(2);
+                }
+                if (carouselItemsXs >= 1) {
+                    var carouselItemsXxs = elem.attr("data-items-xxs") || Number(1);
+                }
+                if (carouselNav == "false") {
+                    carouselNav = false;
+                } else {
+                    carouselNav = true;
+                }
+                if (carouselDots == "false") {
+                    carouselDots = false;
+                } else {
+                    carouselDots = true;
+                }
+                if (carouseldotsData == "true") {
+                    carouseldotsData = true;
+                } else {
+                    carouseldotsData = false;
+                }
+                if (carouselAutoPlay == "false") {
+                    carouselAutoPlay = false;
+                }
+                var t = setTimeout(function() {
+                    elem.owlCarousel({
+                        nav: carouselNav,
+                        dots: carouselDots,
+                        dotsData: carouseldotsData,
+                        thumbs: true,
+                        thumbsPrerendered: true,
+                        navText: $carouselIcons,
+                        autoplay: carouselAutoPlay,
+                        autoplayTimeout: carouselAutoplayTimeout,
+                        autoplayHoverPause: true,
+                        autoWidth: carouselAutoWidth,
+                        autoHeight: resizeHeight,
+                        loop: carouselLoop,
+                        margin: Number(carouselMargin),
+                        smartSpeed: Number(800),
+                        video: carouselVideo,
+                        slideBy: Number(carouselSlideBy),
+                        animateIn: carouseAnimateIn,
+                        animateOut: carouseAnimateOut,
+                        video: true,
+                        center: centerMode,
+                        lazyLoad: true,
+                        videoWidth: true,
+                        videoHeight: true,
+                        touchDrag: touchDrag,
+                        mouseDrag: touchDrag,
+                        onInitialize: function(event) {
+                            // setTimeout(function () {
+                            elem.addClass("owl-carousel owl-theme");
+                            //    }, 1000);
+                        },
+                        responsive: {
+                            0: {
+                                items: Number(carouselItemsXxs),
+                            },
+                            480: {
+                                items: Number(carouselItemsXs),
+                            },
+                            768: {
+                                items: Number(carouselItemsSm),
+                            },
+                            992: {
+                                items: Number(carouselItemsMd),
+                            },
+                            1200: {
+                                items: Number(carouselItemsLg),
+                            },
+                        },
+                    });
+                }, 0);
+            });
+        }
+    }
+});

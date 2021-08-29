@@ -1,5 +1,4 @@
-            <!-- footer -->
-            <footer class="footer container">
+<footer class="footer ">
                 <div class="footer-main">
                     <div class="row">
                         <div class="col-6 col-sm-4 col-lg-2">
@@ -89,7 +88,7 @@
                     </div>
                 </div>
             </footer>
-
+             
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
                 crossorigin="anonymous"></script>

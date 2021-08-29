@@ -1,0 +1,24 @@
+.cat-head img{
+    width: 44px;
+}
+.cat-head span{
+    font-size: 30px;
+    color: #121212;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+.cat-head{
+    margin: 20px;
+}
+.post-name {
+    font-size: 48px;
+    color: #111111;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.container-post{
+    padding-bottom: 40px;
+    border-bottom: 2px solid #f26f21;
+    padding-top: 20px;
+}
